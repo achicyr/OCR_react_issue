@@ -1,0 +1,8 @@
+{
+  "diapo":
+    [
+      {"src": "img1.jpg", "class": "img1", "alt": "je usi sun alt"},
+      {"src": "img2.jpg", "class": "img2", "alt": "je usi sun alt"},
+      {"src": "img3.jpg", "class": "img3", "alt": "je usi sun alt"}
+    ]
+}
