@@ -1,0 +1,13 @@
+{
+  "home":
+    {
+      "diapo":
+        [
+          {"src": "img/home/carousel/fullstack.jpg", "class": "carousel-img1", "alt": "fullstack web developper", "fig": "A good web-developper should manage a lots of web techs", "fig_": "I learned web technologies by myself but also trough academy (EMWEB, OpenClassrooms, ..)"},
+          {"src": "img/home/carousel/sem.png", "class": "carousel-img2", "alt": "search engine marketing", "fig": "Marketing is essential for any web developper", "fig_": "I started long time ago a lots of marketing concepts related to the Internet." },
+          {"src": "img/home/carousel/google.png", "class": "carousel-img3", "alt": "google technologies", "fig": "Google is essential not just for marketing on the Internet", "fig_": "...but also in web-development. Yeah, google is my best freind, and I assume it is the same for you. I am taking google certifications every years since 2018."},
+          {"src": "img/home/carousel/freelance.jpg", "class": "carousel-img3", "alt": "becoming freelance", "fig": "Becoming freelance in web-development and more..", "fig_": "I am searching for a good job of course, where I could collect always more skills. But on the same time, I aim developping an individual activity to offer services in web-development all around the world trough the the Internet."}
+        ],
+      "mwa": "img/home/mwa.jpg"
+    }
+}

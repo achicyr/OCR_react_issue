@@ -1,0 +1,22 @@
+#home{
+  .homeCarousel{
+    padding:1em;background:silver;
+    &__inner{margin-bottom:1em;}
+    &__figure{
+      text-align:center;
+      figcaption div{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+      }
+      figcaption div:first-of-type{left: 15%;}
+      figcaption div:last-of-type{right: 15%;}
+    }
+  }
+  &>h1>span{color:orange;}
+  &>article>div{height:200px}
+}
