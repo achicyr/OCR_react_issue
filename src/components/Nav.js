@@ -1,5 +1,8 @@
 import React from "react";
-import {  Switch, Route, useLocation, useParams, useRouteMatch } from "react-router-dom";
+import {  Switch, Route, Link, useLocation, useParams, useRouteMatch } from "react-router-dom";
+import routes from './routes'
+//TRY TO UNDERSTAND THIS SOLUTION TO COMPUTE THE BREADCRUMP:
+//    https://medium.com/@mattywilliams/generating-an-automatic-breadcrumb-in-react-router-fed01af1fc3
 
 export default function Nav(){
   let pathname = useLocation().pathname;
@@ -13,20 +16,51 @@ export default function Nav(){
   console.log(path_2);
   console.log(path_3);
   let header_a = document.getElementById('header')
+  let bool = true
   return(
     <nav className="nav">
-      {console.log(header_a)}
-      <ul className="breadcrumb">
-      <li className="breadcrumb-item"><a href="/">Home</a></li>
-{/*
       {
-        if(path_1}{
-          <li className="separator"></li>
-          <li className="breadcrumb-item"><a href={"/"+path_1.params._1}>path_1.params._1</a></li>
-        }
+        routes.map((item,j)=>{
+          if(path_1 && item.path == path_1.url){
+            bool = true
+            return (
+              <ol className="breadcrumb" key={j}>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><span>{path_1.params._1}</span></li>
+              </ol>
+            )
+          }
+          if(path_2 && item.path == path_2.url){
+            return (
+              <ol className="breadcrumb" key={j}>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li>
+                <li className="breadcrumb-item"><span>{path_2.params._2}</span></li>
+              </ol>
+            )
+          }
+          if(path_3 && item.path == path_2.url){
+            return (
+              <ol className="breadcrumb" key={j}>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li>
+                <li className="breadcrumb-item"><Link to={path_2.url}>{path_2.params._2}</Link></li>
+                <li className="breadcrumb-item"><span>{path_3.params._3}</span></li>
+              </ol>
+            )
+          }
+          if(!path_1 && !path_2 && !path_3){
+            if(bool){
+              bool = false
+              return (
+                <ol className="breadcrumb" key={j}>
+                  <li className="breadcrumb-item" key={j}><span>Home</span></li>
+                </ol>
+              )
+            }
+          }
+        })
       }
-*/}
-      </ul>
       {/*
         <Route exact  path="/contact">
           {document.getElementById('home') ? console.log("home"):""}

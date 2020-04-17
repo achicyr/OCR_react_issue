@@ -1,4 +1,14 @@
+@import "variable_overrides.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+h1,h2,h3{display:inherit !important}
+#root>header{}
+#root>footer{background:silver}
+#header{
+  h1{@extend .text-center;@extend .col-8;@extend .justify-content-center;}
+}
 #home{
+  h2{@extend .text-center;}
   .homeCarousel{
     padding:1em;background:silver;
     &__inner{margin-bottom:1em;}
@@ -18,5 +28,51 @@
     }
   }
   &>h1>span{color:orange;}
-  &>article>div{height:200px}
+  &>article{@extend .my-5;@extend .container;}
+  &>article>img{width:200px;align-self: center;@extend .mt-2;}
+  &>article>section{border-top:solid silver;}
+}
+#contact{
+  >section{
+    >article{
+      >ul{
+        list-style: none;
+        border-bottom: solid silver;
+        >li{
+          img{height:75px;}
+          >a{float:left;clear:both;}
+        }
+      }
+    }
+    >form{
+
+    }
+  }
+}
+#about{
+  ul{list-style:none}
+  >.jumbotron{
+    >h2{text-align:center;}
+    >p.lead{text-align:center}
+  }
+  >#accordion{
+    >.card{
+      .card-header{
+        @extend .text-center;
+        button{font-size:2rem;}
+      }
+      .collapse{
+        .card-body{font-family: monospace;}
+        li{
+          position:relative;
+          img{position:absolute;top:0;left:0;width:100%;}
+          ul{
+            list-style:circle;
+            padding:0;
+            li{font-size:.5em;font-weight:bold;}
+          }
+        }
+      }
+    }
+  }
 }
