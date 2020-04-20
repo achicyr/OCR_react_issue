@@ -18,7 +18,9 @@ import routes from "./components/routes";
 import css from "./assets/css/index.scss"
 
 
-export default function App() {
+
+export default function App(props) {
+  console.log(props);
   return (
     <Router>
       <Header routes={routes}/>

@@ -59,9 +59,11 @@ h1,h2,h3{display:inherit !important}
     >.card{
       .card-header{
         @extend .text-center;
-        button{font-size:2rem;}
+        button{font-size:2rem;transition:background .7s;}
+        button:not(.collapsed){background:palegreen;border-radius:5px;}
       }
       .collapse{
+        &.show{}
         .card-body{font-family: monospace;}
         li{
           position:relative;
@@ -72,6 +74,18 @@ h1,h2,h3{display:inherit !important}
             li{font-size:.5em;font-weight:bold;}
           }
         }
+        section:not(first-of-type){
+          margin-top:2em;
+          border-top:solid silver;
+          h4{height:3em;line-height:3em;}
+        }
+        .japan{
+          background:url(img/japan0.png) top right / contain no-repeat
+        }
+        .art{
+          background: url(img/art.png) top right / contain no-repeat
+        }
+        .music{background: url(img/music.png) top right / contain no-repeat}
       }
     }
   }

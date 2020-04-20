@@ -20,7 +20,9 @@ export default class Jumbotron extends React.Component{
     return (
       <section className="jumbotron">
         <h2 className="display-4">{this.props.data.h2}</h2>
-        <img src={this.props.src} alt={this.props.data.alt}/>
+        {/*
+          <img src={this.props.src} alt={this.props.data.alt}/>
+        */}
         <hr className="my-4"/>
         <p className="lead">
           <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseIntro" aria-expanded="false" aria-controls="collapseIntro" onClick={this.buttonToggler}>

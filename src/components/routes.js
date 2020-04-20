@@ -5,5 +5,5 @@ import Skills from "./Skills"
 export default [
   { path: "/about", name: "About", Component: About },
   { path: "/contact", name: "Contact", Component: Contact },
-  { path: "/skills", name: "Skills", Component: Skills }
+  //{ path: "/skills", name: "Skills", Component: Skills }
 ];

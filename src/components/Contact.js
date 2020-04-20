@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
+import Map from "./blocks/Map"
 //import css from "../assets/css/contact.scss";
 
 export default class Contact extends React.Component {
@@ -18,23 +19,22 @@ export default class Contact extends React.Component {
               var rs = [], a
               if(item.data instanceof Object){
                 for(a in item.data)
-                  rs.push(<Link to={item.data[a]}>{a}</Link>)
+                  rs.push(<a href={item.data[a]} target="_blank">{a}</a>)
               }
-              console.log("fgrgfg");
-              console.log(item.data instanceof Object);
-              console.log("fgrgfg");
-              console.log(item.data instanceof Object);
               return(
-                <ul className={"showContacts__"+item.item+" row my-3 py-3"}>
+                <ul className={"showContacts__"+item.item+" row my-3 py-3"} key={i}>
                   <li className="col-4">
                     <img src={"img/contact/"+item.src} alt={item.alt}/>
                   </li>
                   <li className="col-8">
                     {
                       item.href ?
-                        <Link to={item.href}>{item.data}</Link>
+                        <a href={item.href}>{item.data}</a>
                       :
+                      item.data ?
                         rs.map(item_=>item_)
+                      :
+                        <Map/>
                     }
                   </li>
                 </ul>
