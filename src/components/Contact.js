@@ -19,7 +19,7 @@ export default class Contact extends React.Component {
               var rs = [], a
               if(item.data instanceof Object){
                 for(a in item.data)
-                  rs.push(<a href={item.data[a]} target="_blank">{a}</a>)
+                  rs.push(<a href={item.data[a]} target="_blank" key={a}>{a}</a>)
               }
               return(
                 <ul className={"showContacts__"+item.item+" row my-3 py-3"} key={i}>

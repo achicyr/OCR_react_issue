@@ -1,7 +1,7 @@
 import React  from 'react'
 import ReactHtmlParser from 'react-html-parser';
 
-export default function Article_(props){
+export default function Accordion(props){
 
   return (
     <div className="card">

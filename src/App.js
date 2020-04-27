@@ -18,9 +18,8 @@ import routes from "./components/routes";
 import css from "./assets/css/index.scss"
 
 
-
 export default function App(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <Router>
       <Header routes={routes}/>
@@ -39,17 +38,24 @@ export default function App(props) {
           </Switch>
         */}
       <Switch>
-        <Route path="/skills">
+        {/*
+          <Route path="/skills">
           <Skills />
         </Route>
-        <Route path="/about/:param">
-          <About />
-        </Route>
-        <Route path="/about">
-          <About data={json.about}/>
-        </Route>
-        <Route path="/contact">
-          <Contact data={json.contact}/>
+        */}
+        {
+          routes.map((item,i)=>
+              <Route path={item.path} key={i}>
+                {
+                  item.name == "Contact" ? <Contact data={json.contact} /> : item.name == "About" ? <About data={json.about} /> : ""
+                }
+              </Route>
+          )
+        }
+
+
+        <Route path="/OCR_project4_react_portfolio/">
+          <Home data={json.home}/>
         </Route>
         <Route path="/">
           <Home data={json.home}/>

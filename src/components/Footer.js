@@ -8,7 +8,7 @@ export default function Footer(props){
     <footer className="container-fluid p-5">
       <div className="row">
         {props.data.blocks.map((item,i)=>
-          <div className="col-md">
+          <div className="col-md" key={i}>
             <h3>{item.h3}</h3>
             <ul>
               {item.items.map((items,i)=>

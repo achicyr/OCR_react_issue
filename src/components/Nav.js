@@ -11,12 +11,17 @@ export default function Nav(){
   let path_1 = useRouteMatch("/:_1")
   let path_2 = useRouteMatch("/:_1/:_2")
   let path_3 = useRouteMatch("/:_1/:_2/:_3")
-  console.log(pathname);
+  // console.log(pathname);
   console.log(path_1);
   console.log(path_2);
   console.log(path_3);
+  console.log(__dirname);
+  console.log("__dirname");
   let header_a = document.getElementById('header')
   let bool = true
+  let isSubdomain = __dirname == "/"
+  let doIgnore = isSubdomain ? true : false
+
   return(
     <nav className="nav">
       {
@@ -26,7 +31,7 @@ export default function Nav(){
             return (
               <ol className="breadcrumb" key={j}>
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item"><span>{path_1.params._1}</span></li>
+                { doIgnore ? <li className="breadcrumb-item"><span>{path_1.params._1}</span></li> : "" }
               </ol>
             )
           }
@@ -34,7 +39,7 @@ export default function Nav(){
             return (
               <ol className="breadcrumb" key={j}>
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li>
+                { doIgnore ? <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li> : "" }
                 <li className="breadcrumb-item"><span>{path_2.params._2}</span></li>
               </ol>
             )
@@ -43,7 +48,7 @@ export default function Nav(){
             return (
               <ol className="breadcrumb" key={j}>
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li>
+                { doIgnore ? <li className="breadcrumb-item"><Link to={path_1.url}>{path_1.params._1}</Link></li> : "" }
                 <li className="breadcrumb-item"><Link to={path_2.url}>{path_2.params._2}</Link></li>
                 <li className="breadcrumb-item"><span>{path_3.params._3}</span></li>
               </ol>
@@ -61,6 +66,20 @@ export default function Nav(){
           }
         })
       }
+      {/*
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+          {
+            routes.map((item,j)=>{
+              return(
+                  { path_1 && item.path == path_1.url && doIgnore ? <li className="breadcrumb-item"><span>{path_1.params._1}</span></li> : "" }
+                  { path_2 && item.path == path_2.url ? <li className="breadcrumb-item"><span>{path_2.params._2}</span></li> : "" }
+                  { path_3 && item.path == path_3.url ? <li className="breadcrumb-item"><span>{path_3.params._3}</span></li> : "" }
+              )
+            })
+          }
+          </ol>
+        */}
       {/*
         <Route exact  path="/contact">
           {document.getElementById('home') ? console.log("home"):""}

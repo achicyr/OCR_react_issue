@@ -7,8 +7,9 @@ import Accordion from "./blocks/Accordion"
 export default class About extends React.Component {
   constructor(props){
     super(props)
+  console.log(this.props);
+  console.log("okok");
   }
-
   render(){
     return(
       <main id="about">
